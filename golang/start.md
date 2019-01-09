@@ -22,7 +22,7 @@ func main() {
 
 ### Run
 
-`go run demo.go`
+`go run start.go`
 
 ### Unit Test
 
@@ -42,4 +42,6 @@ func TestShouldSayHello(t *testing.T) {
 }
 ```
 
-`go test ./...`
+- All: `go test ./...`
+- Single: `go test -run ^(TestShouldSayHello)$`
+- With timeout: `go test -timeout 30s -run ^(TestShouldSayHello)$`
