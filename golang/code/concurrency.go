@@ -1,30 +1,20 @@
-# Concurrency
+package main
 
-## goroutines (lightweight thread)
+import (
+	"log"
+	"sync"
+	"time"
+)
 
-```go
-func startGoroutins() {
+func start() {
 	go func() {
-        for i := 0; i < 10; i++ {
+		for i := 0; i < 10; i++ {
 			time.Sleep(1 * time.Second)
 			log.Println("i = ", i)
 		}
 	}()
 }
-```
 
-```go 
-func TestShouldStartGoroutines(t *testing.T) {
-	startGoroutins()
-	time.Sleep(15 * time.Second)
-}
-```
-
-## wait && channel
-
-send and receive values: `channel := make(chan int)`
-
-```go
 func startChannelDemo() {
 	channel := make(chan int)
 
@@ -39,8 +29,6 @@ func startChannelDemo() {
 		for i := 0; i < 10; i++ {
 			time.Sleep(1 * time.Second)
 			log.Println("produce i = ", i)
-
-			// wait for consumer
 			channel <- i
 		}
 	}
@@ -50,7 +38,6 @@ func startChannelDemo() {
 		defer wt.Done()
 
 		for {
-			// wait for producer
 			i, ok := <-channel
 
 			if !ok {
@@ -69,18 +56,7 @@ func startChannelDemo() {
 	// wait for down
 	wt.Wait()
 }
-```
 
-buffered channle `channel := make(chan int, 1000)`
-
-## select
-
-`select` statement lets a goroutine 'wait' on multiple communication operations.
-
-- 'blocks' until one of its cases can run
-- 'random' choose one if multiple case are ready
-
-```go
 func selectDemo() {
 	channel := make(chan int)
 
@@ -113,6 +89,3 @@ func selectDemo() {
 
 	wt.Wait()
 }
-```
-
-## lock & unlock
