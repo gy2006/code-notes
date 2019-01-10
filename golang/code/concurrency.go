@@ -59,6 +59,7 @@ func startChannelDemo() {
 
 func selectDemo() {
 	channel := make(chan int)
+	defer close(channel)
 
 	var wt sync.WaitGroup
 	wt.Add(1)

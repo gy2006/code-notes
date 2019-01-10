@@ -83,6 +83,7 @@ buffered channle `channel := make(chan int, 1000)`
 ```go
 func selectDemo() {
 	channel := make(chan int)
+	defer close(channel)
 
 	var wt sync.WaitGroup
 	wt.Add(1)
