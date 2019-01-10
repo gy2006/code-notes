@@ -117,3 +117,21 @@ func selectDemo() {
 ```
 
 ## lock & unlock
+
+```go
+var mux sync.Mutex
+
+mux.Lock()
+defer mux.Unlock()
+```
+
+## Singleton
+
+```go
+var signleton CmdService
+var once sync.Once
+
+once.Do(func() {
+	singleton = new(CmdService)
+})
+```
