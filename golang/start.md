@@ -1,6 +1,18 @@
+# Start
+
+## History
+
+1.0 (2012/03/28) ----> 1.11 (2018/08/24)
+
+
 ## IDE
 - Visutal Studio Code
 - jetbrains goland
+
+
+## Src
+
+`https://golang.org/src/`
 
 
 ## Getting start
@@ -33,6 +45,12 @@ func sayHello() string {
 	return "Hello world"
 }
 ```
+
+### Packages
+
+`https://godoc.org`
+
+`go get github.com/gin-gonic/gin`
 
 ### Build
 
