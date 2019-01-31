@@ -24,7 +24,6 @@
 - Service
 - Volume
 - Namespace
-
 ###
 
 - ReplicaSet
@@ -43,12 +42,8 @@
 - Job
 
 
-## Service
+### Pod
 
-- Defines a logical set of Pods
-- Access the Pods
-
-## Pod
 - Probes:
   - Liveness: `Indicates whether the Container is running`
   - Readiness: `Indicates whether the Container is ready to service requests`
@@ -65,3 +60,13 @@
       initialDelaySeconds: 3
       periodSeconds: 3
     ```
+
+### Deployment
+ - Rolling Update
+   - MaxSurge: `.spec.strategy.rollingUpdate.maxSurge = 25%`
+   - MaxUnavailable: `.spec.strategy.rollingUpdate.maxUnavailable = 25%`
+
+## Service
+
+- Defines a logical set of Pods
+- Access the Pods
