@@ -50,6 +50,12 @@ func TestShouldImplementJsonable(t *testing.T) {
 		Age:  18,
 	}
 
+	otherJsonable := &Person{
+		Name: "yang",
+		Age:  18,
+	}
+
 	assert.NotNil(jsonable)
 	assert.Equal(`{"name":"yang","age":18,"address":null}`, jsonable.ToJson())
+	assert.Equal(`{"name":"yang","age":18,"address":null}`, otherJsonable.ToJson())
 }

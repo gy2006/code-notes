@@ -7,6 +7,10 @@ type Jsonable interface {
 	ToJson() string
 }
 
+type OtherJsonable interface {
+	ToJson() string
+}
+
 type Address struct {
 	Zipcode  string
 	Country  string
